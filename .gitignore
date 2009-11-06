@@ -7,3 +7,4 @@ vendor/emacs-w3m/*
 CVS
 .svn
 *~
+*#
