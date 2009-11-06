@@ -1,5 +1,6 @@
 (require 'calendar)
-;(require 'org-install)
+(require 'org)
+(require 'org-install)
 
 ;; [2007-04-03] Windows면 설정 directory를 d:/workspace에서 읽고, 아니면 홈 directory에서 읽도록
 ;;
@@ -44,12 +45,19 @@
 			1)))
 
 (add-hook 'org-mode-hook
-		  (lambda ()
-			(org-set-local 'yas/trigger-key  (kbd "C-`"))
-			;; (define-key yas/keymap [tab] 'yas/next-field-group)
-			(auto-fill-mode)
-			(add-hook 'local-write-file-hooks 'blog-updated-timestamp)
-			))
+		  (let ((original-command (lookup-key org-mode-map [tab])))
+			`(lambda ()
+			   (setq yas/fallback-behavior
+					 '(apply ,original-command))
+			   (local-set-key [tab] 'yas/expand))))
+
+;; (add-hook 'org-mode-hook
+;; 		  (lambda ()
+;; 			(org-set-local 'yas/trigger-key  (kbd "TAB"))
+;; 			(define-key yas/keymap [tab] 'yas/next-field-group)
+;; 			(auto-fill-mode)
+;; 			(add-hook 'local-write-file-hooks 'blog-updated-timestamp)
+;; 			))
 
 (defun blog-updated-timestamp ()
   "Upate blog-updated-timestamp"
