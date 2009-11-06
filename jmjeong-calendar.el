@@ -43,4 +43,6 @@
  '(diary ((t (:foreground "darkred")))))
 
 ;; diary file entry
-(setq diary-file "~/diary")
+;; 
+(setq diary-file "~/.emacs.d/emacs-diary")
+

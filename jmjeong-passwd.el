@@ -1,11 +1,15 @@
 ;; My passwords are obviously not here. These are for you to override yourself.
 
-;Twitter
-(setq twit-user "YourTwitterUsername")
-(setq twit-pass "YourTwitterPassword")
+; Twitter
+(setq twit-user "jmjeong")
+;(setq twit-pass "YourTwitterPassword")
+
+; twittering mode
+;(setq twittering-username "jmjeong")
+;(setq twittering-password "twitter password here") ; This is optional
 
 ;Gmail
-(setq gmail-user "YourGmailUsername")
+(setq gmail-user "jmjeong")
 (setq gmail-pass "YourGmailPassword")
 
 ;; You can also do as I do and keep them in a seperate folder:

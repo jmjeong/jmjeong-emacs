@@ -2,9 +2,9 @@
 (require 'twittering-mode)
 
 (setq twittering-username "jmjeong")
-(global-set-key "\C-xt" 'twittering-mode)
+;(setq twittering-password "twitter password here") ; This is optional, original is stored in 'real-passwords'
 
-; (setq twittering-password "twitter password here") ; This is optional
+(global-set-key "\C-xt" 'twittering-mode)
 
 ;; [2009-10-26] twittering-reply-to-user가 왜 hotkey로 지정이 안 되었나 싶었는데, 그냥 ENTER치니
 ;; 이 기능으로 동작한다. 삭제
