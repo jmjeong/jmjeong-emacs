@@ -1,0 +1,9 @@
+#name : Blogofile yaml header
+#contributor : Jaemok Jeong <jmjeong@gmail.com>
+# --
+---
+title: ${1: }
+date:    `(format-time-string "%Y/%02m/%02d %02H:%02M:%02S" (current-time))`
+updated: `(format-time-string "%Y/%02m/%02d %02H:%02M:%02S" (current-time))`
+categories: ${2: }
+---
