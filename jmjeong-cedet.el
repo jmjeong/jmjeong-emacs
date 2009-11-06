@@ -5,7 +5,6 @@
 ;; See cedet/common/cedet.info for configuration details.
 
 (require 'cedet)
-;(load-file "~/my-dot-emacs/vendor/cedet/common/cedet.el")
 
 ;; Enable EDE (Project Management) features
 (global-ede-mode 1)

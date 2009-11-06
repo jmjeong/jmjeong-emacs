@@ -8,7 +8,7 @@
 
 
 ;; load jdee environment for Android
-; (load-file "~/my-dot-emacs/cedet/common/cedet.el")
+;;
 ;; (autoload 'jde-mode "jde" "JDE mode." t)
 ;; (setq auto-mode-alist
 ;;       (append '(("\\.java\\'" . jde-mode))  auto-mode-alist)

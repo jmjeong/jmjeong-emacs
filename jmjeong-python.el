@@ -26,8 +26,8 @@
 (eval-when-compile (require 'pylookup))
 
 ;; set executable file and db file
-(setq pylookup-program "~/my-dot-emacs/vendor/pylookup/pylookup.py")
-(setq pylookup-db-file "~/my-dot-emacs/vendor/pylookup/pylookup.db")
+(setq pylookup-program (concat elisp-root-dir "/vendor/pylookup/pylookup.py"))
+(setq pylookup-db-file (concat elisp-root-dir "/vendor/pylookup/pylookup.db"))
 
 ;; to speedup, just load it on demand
 (autoload 'pylookup-lookup "pylookup"

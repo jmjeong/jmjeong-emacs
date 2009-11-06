@@ -4,3 +4,5 @@
 (set-register ?s '(file . "~/my-dot-emacs/jmjeong-shortcut.el"))
 (set-register ?i '(file . "~/workspace/journal/org/index.org"))
 
+
+

@@ -4,21 +4,21 @@
 ;;   http://jmjeong.com
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defcustom elisp-root-dir "~/my-dot-emacs"
+  "The root directory where elisp is installed")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Library Path 
 ;;
-;; Note: All emacs configraiton is underneath ~/my-dot-emacs
+;; Note: All emacs configraiton is underneath 'elisp-root-dir'
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/my-dot-emacs")
-(add-to-list 'load-path "~/my-dot-emacs/auto-install")
-(add-to-list 'load-path "~/my-dot-emacs/vendor")
-(add-to-list 'load-path "~/my-dot-emacs/vendor/bbdb")
-(add-to-list 'load-path "~/my-dot-emacs/vendor/yasnippet")
-(add-to-list 'load-path "~/my-dot-emacs/vendor/emacs-w3m")
-(add-to-list 'load-path "~/my-dot-emacs/vendor/pylookup")
-
-;(progn (cd "~/my-dot-emacs/vendor/cedet")
-;	   (load "subdirs"))
+(add-to-list 'load-path elisp-root-dir)
+(add-to-list 'load-path (concat elisp-root-dir "/auto-install"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/bbdb"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/yasnippet"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/emacs-w3m"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/pylookup"))
 
 ;; Add all top-level subdirectories of my-dot-emacs
 ;; (progn (cd "~/my-dot-emacs")
