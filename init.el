@@ -48,6 +48,7 @@
 (load-library "jmjeong-system")			; system depedent setting
 (load-library "jmjeong-func")			; jmjeong's local function def
 (load-library "jmjeong-key")			; local key binding
+(load-library "jmjeong-filecache") 		; file cache
 ;(load-library "jmjeong-cedet")			; cedet
 ;(load-library "jmjeong-icicles")		; icicles
 (load-library "jmjeong-visual")			; visual apperance
