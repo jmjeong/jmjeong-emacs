@@ -17,7 +17,8 @@
 (let ((type (emacs-type)))
   ;; mac
   (cond ((eq type 'emacs-mac-window)
-		 (set-default-font "NanumGothicCoding-14")
+		 ;(set-default-font "NanumGothicCoding-14")
+		 (set-face-font 'default "NanumGothicCoding-14")
 		 ;; mac에서는 command 키를 meta key로 사용
 		 (setq ns-command-modifier 'meta)
 		 ;; (setq ns-option-modifier 'command)
@@ -28,6 +29,7 @@
   (cond ((eq type 'emacs-window)
 		 ;; window에서는 벨 소리를 듣고 싶지 않다
 		 (set-message-beep 'silent)
+		 (set-face-font 'default "NanumGothicCoding-14")
 		 ;; C-h p를 win32에서 프린트 하는 용도로 재지정
 		 (global-set-key "\C-hp" 'w32-print-print-buffer-notepad))
 		)
