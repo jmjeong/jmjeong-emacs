@@ -1,12 +1,12 @@
 ;; Korean Setting
 (when enable-multibyte-characters
-  (set-language-environment "Korean")
+;  (set-language-environment "Korean")
   
   ; (setq-default file-name-coding-system 'euc-kr)
   ;; the following setting is unnecessary from 20.5 >
   (when (string-match "^3" (or (getenv "HANGUL_KEYBOARD_TYPE") "390"))
     (setq default-korean-keyboard "3"))
-  
+   
   (setq input-method-verbose-flag nil
         input-method-highlight-flag nil)
   (prefer-coding-system 'utf-8)  		; utf-8 환경 설정
