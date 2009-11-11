@@ -1,6 +1,6 @@
 ;; Korean Setting
 (when enable-multibyte-characters
-;  (set-language-environment "Korean")
+  (set-language-environment "Korean")
   
   ; (setq-default file-name-coding-system 'euc-kr)
   ;; the following setting is unnecessary from 20.5 >
