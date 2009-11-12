@@ -144,8 +144,21 @@
   (interactive "GPath: ")
   (insert (expand-file-name file)))
 
+
 (global-set-key (kbd "C-x C-i") 'insert-path)
 
+;; insert date into buffer at point
+;; optained from http://www.chrislott.org/geek/emacs/dotemacs.html
+;;
+(defun insert-date (arg)
+  "Insert date at point."
+  (interactive "P")
+  (if (not arg)
+	  (insert (format-time-string "[%Y-%m-%d %a]"))
+	(insert (format-time-string "[%Y-%m-%d %a %p %l:%M]"))	
+	))
+
+(global-set-key (kbd "C-c , d") 'insert-date)
 
 ;; el 파일을 save할 때, 이미 elc 파일이 있는 경우 byte compile하도록
 ;; 
@@ -182,10 +195,4 @@
 ;; tabbar mode [2009-04-08]
 ;(load "tabbar" nil t)
 
-
-
 ;; (load "jmjeong-devenv" nil t)
-
-
-
-
