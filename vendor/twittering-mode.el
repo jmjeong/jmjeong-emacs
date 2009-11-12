@@ -45,6 +45,7 @@
 (require 'cl)
 (require 'xml)
 (require 'parse-time)
+(require 'smallurl)						; you can download smallurl from http://tinyurl.com/l978uu
 
 (defconst twittering-mode-version "0.8")
 
@@ -1017,18 +1018,17 @@ If STATUS-DATUM is already in DATA-VAR, return nil. If not, return t."
       (twittering-http-post "statuses" "update" parameters))
     t))
 
-(require 'smallurl)
 (defun twittering-update-status-from-minibuffer (&optional init-str
 														   reply-to-id)
   (if (null init-str) (setq init-str ""))
-  (let ((status init-str) (not-posted-p t))
+  (let ((status init-str) (not-posted-p t) (map minibuffer-local-map))
     (while not-posted-p
-	  (define-key minibuffer-local-map (kbd "<f4>") 'small-url-replace-at-point)
-      (setq status (read-from-minibuffer "status: " status nil nil nil nil t))
+	  (define-key map (kbd "<f4>") 'smallurl-replace-at-point)
+      (setq status (read-from-minibuffer "status: " status map nil nil nil t))
 	  (while (< 141 (length status))
 		(setq status (read-from-minibuffer (format "(%d): "
 												   (- 140 (length status)))
-										   status nil nil nil nil t)))
+										   status map nil nil nil t)))
       (setq not-posted-p
 			(not (twittering-update-status-if-not-blank status reply-to-id)))
 	  )
