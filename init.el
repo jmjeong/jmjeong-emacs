@@ -24,6 +24,10 @@
 ;; (progn (cd "~/my-dot-emacs")
 ;; 	   (load "subdirs"))
 
+;; add-to-list emacs lisp package archive directory
+(let ((default-directory (concat elisp-root-dir "/vendor/elpa")))
+  (load "subdirs"))
+
 (require 'emacs-type)
 (require 'cl)
 
@@ -82,6 +86,7 @@
 (load-library "jmjeong-gtags")			; gtags
 (load-library "jmjeong-winmove")		; winmove
 (load-library "jmjeong-anything")		; anything
+(load-library "jmjeong-gist")			; gist
 (load-library "jmjeong-autoinstall")	; auto-install
 
 (garbage-collect)

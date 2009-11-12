@@ -150,6 +150,8 @@
 ;; insert date into buffer at point
 ;; optained from http://www.chrislott.org/geek/emacs/dotemacs.html
 ;;
+;; C-u prefix와 함께 수행하면 시간도 같이 입력
+;;
 (defun insert-date (arg)
   "Insert date at point."
   (interactive "P")
@@ -183,7 +185,6 @@
 ;; Source pair(C-z, C-v에 매핑)
 (load "sourcepair")
 (setq sourcepair-source-extensions (quote (".cpp" ".cxx" ".cc" ".C" ".c" ".m")))
-
 
 ;; Desktop save mode
 ; (add-to-list 'desktop-globals-to-save 'file-name-history)  
