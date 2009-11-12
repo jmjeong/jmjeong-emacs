@@ -322,8 +322,8 @@ See `org-publish-org-to' to the list of arguments."
          :table-of-contents nil
          :drawers nil
          :todo-keywords nil ; Skip todo keywords
-         :exclude "draft*" ; TODO fix
-         :section-numbers nil
+         :exclude "_*" ; TODO fix
+         :section-nuvmbers nil
 		 :auto-index nil
          :auto-preamble nil
          :auto-postamble nil
