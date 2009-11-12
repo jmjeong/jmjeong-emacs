@@ -9,8 +9,8 @@
 ;(setq twittering-password "twitter password here") ; This is optional
 
 ;; Gmail
-(setq gmail-user "jmjeong")
-(setq gmail-pass "YourGmailPassword")
+;; (setq gmail-user "jmjeong")
+;; (setq gmail-pass "YourGmailPassword")
 
 ;; gist setting
 (setq github-username "jmjeong")
