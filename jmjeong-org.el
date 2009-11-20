@@ -265,7 +265,7 @@
 
 
 ;; body 부분만 생성해 내기 위해 org-publish.el에서 함수 가지고 와서 변경
-;; 
+;;   [2009-11-20 Fri] advice를 이용해서 간단히 할 수 있지 않을까???
 (defun org-publish-org-to-local (format plist filename pub-dir)
   "Publish an org file to FORMAT.
 PLIST is the property list for the given project.
@@ -322,7 +322,7 @@ See `org-publish-org-to' to the list of arguments."
          :table-of-contents nil
          :drawers nil
          :todo-keywords nil ; Skip todo keywords
-         :exclude "_*" ; TODO fix
+         :exclude "draft*" ; TODO fix
          :section-nuvmbers nil
 		 :auto-index nil
          :auto-preamble nil

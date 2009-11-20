@@ -1,11 +1,10 @@
 ;; android-mode.el [2009-10-30]
 (require 'android-mode)
-(setq android-mode-sdk-dir "~/android")
+(setq android-mode-sdk-dir "~/android/platforms/android-2.0/")
 
 ;; emdroid.el [2009-09-11]
 (require 'emdroid)
-(setq emdroid-tools-dir "/Users/jmjeong/android/tools")
-
+(setq emdroid-tools-dir "~/android/tools")
 
 ;; load jdee environment for Android
 ;;
@@ -19,4 +18,3 @@
 ;; (setq explicit-shell-file-name shell-file-name)
 ;; (setenv "SHELL" shell-file-name)
 ;; (setq explicit-sh-args '("-login" "-i"))
-

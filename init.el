@@ -87,6 +87,7 @@
 (load-library "jmjeong-winmove")		; winmove
 (load-library "jmjeong-anything")		; anything
 (load-library "jmjeong-gist")			; gist
+(load-library "jmjeong-dictionary")		; dictionary
 (load-library "jmjeong-autoinstall")	; auto-install
 
 (garbage-collect)
@@ -112,5 +113,3 @@
  '(w3m-use-tab nil))
 
 (put 'narrow-to-region 'disabled nil)
-
-
