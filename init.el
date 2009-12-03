@@ -99,7 +99,7 @@
   ;; If there is more than one, they won't work right.
  '(canlock-password "154f9f29ee266ade1cca710c233702480de625f0")
  '(git-baseline-commit (quote (("/Users/jmjeong/t/blogofile.com/" . "blogofile.com"))) t)
- '(mm-charset-override-alist (quote ((gb2312 . gbk) (iso-8859-1 . windows-1252) (iso-8859-8 . windows-1255) (iso-8859-9 . windows-1254) (x-windows-949 . euc-kr))))
+ '(mm-charset-override-alist (quote ((gb2312 . gbk) (iso-8859-1 . windows-1252) (iso-8859-8 . windows-1255) (iso-8859-9 . windows-1254) (x-windows-949 . euc-kr) (unicode-1-1-utf-7 . utf-8))))
  '(org-default-notes-file (concat org-agenda-directory "/notes.org"))
  '(org-emphasis-regexp-components (quote (" 	('\"{" "- 	.,:!?;'\")}[:multibyte:]" " 	
 ,\"'" "." 1)))
