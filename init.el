@@ -98,18 +98,38 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(canlock-password "154f9f29ee266ade1cca710c233702480de625f0")
+ '(display-time-mode t)
  '(git-baseline-commit (quote (("/Users/jmjeong/t/blogofile.com/" . "blogofile.com"))) t)
- '(mm-charset-override-alist (quote ((gb2312 . gbk) (iso-8859-1 . windows-1252) (iso-8859-8 . windows-1255) (iso-8859-9 . windows-1254) (x-windows-949 . euc-kr))))
+ '(mm-charset-override-alist (quote ((gb2312 . gbk) (iso-8859-1 . windows-1252) (iso-8859-8 . windows-1255) (iso-8859-9 . windows-1254) (x-windows-949 . euc-kr) (unicode-1-1-utf-7 . utf-8))))
+ '(org-agenda-files (quote ("/Users/jmjeong/workspace/journal/org/100104~100108.org" "/Users/jmjeong/workspace/journal/org/gitcheetsheet.org" "/Users/jmjeong/workspace/journal/org/index.org" "/Users/jmjeong/workspace/journal/org/iphone-tutorial.org" "/Users/jmjeong/workspace/journal/org/orgmode.org" "/Users/jmjeong/workspace/journal/org/todo.org" "/Users/jmjeong/workspace/journal/org/company/android.org" "/Users/jmjeong/workspace/journal/org/company/interview.org" "/Users/jmjeong/workspace/journal/org/company/kth-MusicAurora.org" "/Users/jmjeong/workspace/journal/org/company/lge.org" "/Users/jmjeong/workspace/journal/org/company/newemployee.org" "/Users/jmjeong/workspace/journal/org/company/sonata.org" "/Users/jmjeong/workspace/journal/org/company/teammeeting.org" "/Users/jmjeong/workspace/journal/org/company/tiffany.org" "/Users/jmjeong/workspace/journal/org/personal/apt09.org" "/Users/jmjeong/workspace/journal/org/personal/buypc.org" "/Users/jmjeong/workspace/journal/org/personal/family-event.org")))
+ '(org-agenda-ndays 7)
+ '(org-agenda-show-all-dates t)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-start-on-weekday nil)
+ '(org-deadline-warning-days 14)
  '(org-default-notes-file (concat org-agenda-directory "/notes.org"))
  '(org-emphasis-regexp-components (quote (" 	('\"{" "- 	.,:!?;'\")}[:multibyte:]" " 	
 ,\"'" "." 1)))
  '(org-export-html-style-include-scripts nil)
+ '(org-fast-tag-selection-single-key (quote expert))
  '(org-mobile-directory "/Volumes/jmjeong/org")
  '(org-mobile-files (quote (org-agenda-files org-agenda-text-search-extra-files)))
  '(org-mobile-inbox-for-pull "~/workspace/journal/org/from-org.org")
  '(org-remember-store-without-prompt t)
+ '(org-remember-templates (\` ((110 "* %u %?" (\, (concat org-agenda-directory "notes.org")) "Notes") (116 "* TODO %?
+  %u" (\, (concat org-agenda-directory "todo.org")) "Tasks"))))
+ '(org-reverse-note-order t)
  '(safe-local-variable-values (quote ((dired-omit-extensions ".html") (dired-omit-mode . t) (dired-actual-switches . "-lat"))))
+ '(scroll-bar-mode nil)
  '(semantic-java-dependency-system-include-path (quote ("/Users/jmjeong/android/1.6_r1.4src/framework/base/core/java/")))
+ '(show-paren-mode t)
  '(w3m-use-tab nil))
 
 (put 'narrow-to-region 'disabled nil)
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(diary ((t (:foreground "darkred")))))

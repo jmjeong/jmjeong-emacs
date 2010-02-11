@@ -49,6 +49,7 @@
 			`(lambda ()
 			   (setq yas/fallback-behavior
 					 '(apply ,original-command))
+			   (auto-fill-mode)
 			   (local-set-key [tab] 'yas/expand))))
 
 ;; (add-hook 'org-mode-hook
@@ -158,6 +159,7 @@
 		 (directory-files (expand-file-name (concat org-agenda-directory "personal")) t "\\.org$"))))
 
 (jm-rescan-org-agenda-files)
+(org-remember-insinuate)
 
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
@@ -382,8 +384,10 @@ See `org-publish-org-to' to the list of arguments."
   ;; 	  (setq blogofile-output-buffer (get-buffer-create "*blogofile output*")))
   ;; (pop-to-buffer blogofile-output-buffer)
   ;; (end-of-buffer)
-  (async-shell-command
-   (format "cd %s;PYTHONPATH=~/workspace/blogofile:~/workspace/blogofile/blogofile python -m blogofile.main -vv build" "~/t/blogofile.com") nil))
+  ;; (async-shell-command
+  ;;  (format "cd %s;PYTHONPATH=~/workspace/blogofile:~/workspace/blogofile/blogofile python -m blogofile.main -vv build" "~/t/blogofile.com") nil)
+  (async-shell-command "cd ~/t/blogofile.com;/usr/local/bin/blogofile -v build")
+  )
 
 ;; (defun jm-generate-blogofile ()
 ;;   "Generate local blogofile"

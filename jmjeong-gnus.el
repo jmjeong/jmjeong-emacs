@@ -15,8 +15,10 @@
 (setq gnus-show-threads t)
 (setq gnus-thread-indent-level 2)
 
+(setq gnus-fetch-old-headers t)
+
 ;; for gnus speed-up
-(setq gc-cons-threshold 35000000)		; 35M
+(setq gc-cons-threshold 12000000)		; 35M -> 12M
 (setq gnus-use-correct-string-widths nil)
 (require 'message)
 (add-to-list 'message-syntax-checks '(sender . disabled))

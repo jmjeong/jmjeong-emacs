@@ -1,3 +1,4 @@
+
 ;; python mode
 (load "python-mode" nil t)
 (autoload 'python-mode "python-mode" "Python editing mode." t)
@@ -16,7 +17,7 @@
 ;; iPython settting
 (setq ipython-command "/usr/local/bin/ipython")
 (require 'ipython)
-(setq py-python-command-args '("-colors" "NoColor")) 
+;; (setq py-python-command-args '("-colors" "NoColor")) 
 
 ;; ======================================================================
 ;; add pylookup to your loadpath
