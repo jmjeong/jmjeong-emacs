@@ -77,5 +77,5 @@
         (setq cwd (concat cwd "../") max (- max 1))))
     (and found (expand-file-name found))))
 
-(add-hook 'dired-mode-hook (lambda () (when (xcode-root) (android-mode t))))
-(add-hook 'find-file-hooks (lambda () (when (xcode-root) (android-mode t))))
+(add-hook 'dired-mode-hook (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))
+(add-hook 'find-file-hooks (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))
