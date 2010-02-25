@@ -77,5 +77,7 @@
         (setq cwd (concat cwd "../") max (- max 1))))
     (and found (expand-file-name found))))
 
+;; 오동작..  있는 경우에는 추가하고 없는 경우에는 삭제 하도록 하거나 아니면 priority를 지정하는 방안을 고민해 봐야
+;;
 (add-hook 'dired-mode-hook (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))
 (add-hook 'find-file-hooks (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))

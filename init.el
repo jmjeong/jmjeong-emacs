@@ -63,13 +63,14 @@
 (load-library "jmjeong-xcscope")		; xcscope
 (load-library "jmjeong-cprog")			; c programming
 (load-library "jmjeong-calendar")		; lunar calendar and diary stuff
-(load-library "jmjeong-objc")			; objective-cc
+;;(load-library "jmjeong-objc")			; objective-cc
 (load-library "jmjeong-python")			; python
 (load-library "jmjeong-git")			; git
 (load-library "jmjeong-maxframe")		; maxframe
 (load-library "jmjeong-autocomplete")	; auto-complete
 (load-library "jmjeong-w3m")			; w3m
 (load-library "jmjeong-bbdb")			; bbdb
+(load-library "jmjeong-php")			; php
 (load-library "jmjeong-gnus")			; gnus
 (load-library "jmjeong-org")			; org-mode
 ;(load-library "jmjeong-howm")			; howm
