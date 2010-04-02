@@ -19,6 +19,11 @@
 ;; C-x k를 재정의
 (global-set-key "\C-xk" 'kill-this-buffer)
 
+;; C-x z(C-z)
+(global-set-key "\C-xz" 'other-frame)
+(global-set-key "\C-xC-z" 'other-frame)
+
+
 ;; find-tag에 관한 재정의
 (fset 'find-next-tag "\C-u\256")        ; macro for C-u M-.
 (fset 'find-prev-tag "\C-u-\256")       ; macro for C-u - M-.

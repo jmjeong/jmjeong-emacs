@@ -97,6 +97,10 @@
 (setq auto-save-timeout 180)
 (setq auto-save-list-file-prefix "~/.autosave/saves-")
 
+;; tramp 동작할때는 auto save 끄기 [2010-03-04 Thu]
+(add-to-list 'backup-directory-alist
+			 (cons tramp-file-name-regexp nil))
+
 (setq three-step-help t)	   ;
 (delete-selection-mode 1) ; 윈도우처럼, 선택된 regeion 을 DEL 로 지우거나, 다른 글자를 타이핑 할때 즉시 지운다.
 ;; (which-function-mode 1)					; 어떤 함수를 수정중인지 표현 

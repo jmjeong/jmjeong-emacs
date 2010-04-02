@@ -62,8 +62,9 @@
 (load-library "jmjeong-doxymacs")		; doxymacs
 (load-library "jmjeong-xcscope")		; xcscope
 (load-library "jmjeong-cprog")			; c programming
+(load-library "jmjeong-graphviz")
 (load-library "jmjeong-calendar")		; lunar calendar and diary stuff
-;;(load-library "jmjeong-objc")			; objective-cc
+(load-library "jmjeong-objc")			; objective-cc
 (load-library "jmjeong-python")			; python
 (load-library "jmjeong-git")			; git
 (load-library "jmjeong-maxframe")		; maxframe
@@ -89,6 +90,7 @@
 (load-library "jmjeong-anything")		; anything
 (load-library "jmjeong-gist")			; gist
 (load-library "jmjeong-dictionary")		; dictionary
+(load-library "jmjeong-tracwiki")		; tracwiki
 (load-library "jmjeong-autoinstall")	; auto-install
 
 (garbage-collect)

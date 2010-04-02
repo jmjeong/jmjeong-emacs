@@ -1,8 +1,8 @@
 ;;; git-blame.el --- Minor mode for incremental blame for Git  -*- coding: utf-8 -*-
 ;;
-;; Copyright (C) 2007  David KÃƒÂ¥gedal
+;; Copyright (C) 2007  David Kågedal
 ;;
-;; Authors:    David KÃƒÂ¥gedal <davidk@lysator.liu.se>
+;; Authors:    David Kågedal <davidk@lysator.liu.se>
 ;; Created:    31 Jan 2007
 ;; Message-ID: <87iren2vqx.fsf@morpheus.local>
 ;; License:    GPL
@@ -104,13 +104,6 @@ selected element from l."
   `(let ((e (elt ,l (random (length ,l)))))
      (setq ,l (remove e ,l))
      e))
-
-(defvar git-blame-log-oneline-format
-  "format:[%cr] %cn: %s"
-  "*Formatting option used for describing current line in the minibuffer.
-
-This option is used to pass to git log --pretty= command-line option,
-and describe which commit the current line was made.")
 
 (defvar git-blame-dark-colors
   (git-blame-color-scale "0c" "04" "24" "1c" "2c" "34" "14" "3c")
@@ -252,7 +245,7 @@ See also function `git-blame-mode'."
 
 (defun git-blame-cleanup ()
   "Remove all blame properties"
-    (mapcar 'delete-overlay git-blame-overlays)
+    (mapc 'delete-overlay git-blame-overlays)
     (setq git-blame-overlays nil)
     (remove-git-blame-text-properties (point-min) (point-max)))
 
@@ -378,10 +371,9 @@ See also function `git-blame-mode'."
 (defun git-describe-commit (hash)
   (with-temp-buffer
     (call-process "git" nil t nil
-                  "log" "-1"
-		  (concat "--pretty=" git-blame-log-oneline-format)
+                  "log" "-1" "--pretty=oneline"
                   hash)
-    (buffer-substring (point-min) (point-max))))
+    (buffer-substring (point-min) (1- (point-max)))))
 
 (defvar git-blame-last-identification nil)
 (make-variable-buffer-local 'git-blame-last-identification)

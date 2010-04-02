@@ -1191,6 +1191,8 @@ If local content is not changed, confirm doing."
     ;; do it
     (let ((comment (read-string "Comment: " nil 'trac-wiki-comment-history))
 	  (page (trac-wiki-page-name)))
+	  (save-excursion       			; added by jmjeong [2010-03-10 Wed]
+		(untabify (point-min) (point-max)))
       (trac-rpc-put-page page (buffer-string) comment)
       ;; update new info
       (trac-wiki-update-page-info page)
@@ -2114,6 +2116,34 @@ For exmple:
 		;; not found, append
 		(nconc d (list a)))))))
     dst))
+
+;; from http://trac-hacks.org/wiki/EmacsWikiEditScript
+;; Patch to add save-buffers-kill-emacs support to trac-wiki  ¶
+
+(defun trac-wiki-modified-buffers ()
+  "Return a list of all modified trac-wiki buffers."
+  (let (trac-wiki-modified-buffer-list)
+    (dolist (buf (buffer-list) trac-wiki-modified-buffer-list)
+      (if (and (buffer-modified-p buf)
+               (equal "TracWiki" (cdr (assq 'mode-name (buffer-local-variables buf)))))
+          (setq trac-wiki-modified-buffer-list
+                (cons 
+                 buf
+                 trac-wiki-modified-buffer-list))))))
+
+(defun trac-wiki-commit-all-modified-buffers ()
+  "Iterate over modified trac-wiki buffers and prompt to commit each one"
+  (interactive)
+  (dolist (buf (trac-wiki-modified-buffers))
+    (switch-to-buffer buf)
+    (if (yes-or-no-p (format "Commit changes to buffer %s ? " (buffer-name buf)))
+        (call-interactively 'trac-wiki-commit))
+    ))
+
+
+;;Make save-buffers-kill-emacs run this function
+(add-hook 'kill-emacs-query-functions (lambda () (trac-wiki-commit-all-modified-buffers) t))
+
 
 (provide 'trac-wiki)
 

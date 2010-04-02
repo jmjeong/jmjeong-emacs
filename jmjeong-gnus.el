@@ -1,6 +1,8 @@
 (setq user-mail-address "jmjeong@nemustech.com")
 (setq user-full-name "Jaemok Jeong")
 
+(setq mail-user-agent 'sendmail-user-agent)
+
 (setq gnus-select-method '(nnimap "nemustech"
     (nnimap-address "mail.nemustech.com")
     (nnimap-server-port 993)

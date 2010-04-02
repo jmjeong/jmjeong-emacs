@@ -12,6 +12,7 @@
 ; ediff configuration [2009-03-05]
 (setq ediff-merge-split-window-function (quote split-window-horizontally))
 (setq ediff-split-window-function (quote split-window-horizontally))
+(require 'ediff+)
 
 ;; Fine tuning 
 ;; 
