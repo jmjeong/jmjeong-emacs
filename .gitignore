@@ -4,5 +4,6 @@ vendor/ecb-2.32/*
 *.elc
 CVS
 .svn
+.#*
 *~
 *#
