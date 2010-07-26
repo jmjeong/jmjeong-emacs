@@ -91,6 +91,8 @@
 (load-library "jmjeong-gist")			; gist
 (load-library "jmjeong-dictionary")		; dictionary
 (load-library "jmjeong-tracwiki")		; tracwiki
+(load-library "jmjeong-devonthink")		; devonthink
+(load-library "jmjeong-wordpress")		; org2blog package
 (load-library "jmjeong-autoinstall")	; auto-install
 
 (garbage-collect)
@@ -104,7 +106,6 @@
  '(display-time-mode t)
  '(git-baseline-commit (quote (("/Users/jmjeong/t/blogofile.com/" . "blogofile.com"))) t)
  '(mm-charset-override-alist (quote ((gb2312 . gbk) (iso-8859-1 . windows-1252) (iso-8859-8 . windows-1255) (iso-8859-9 . windows-1254) (x-windows-949 . euc-kr) (unicode-1-1-utf-7 . utf-8))))
- '(org-agenda-files (quote ("/Users/jmjeong/workspace/journal/org/100104~100108.org" "/Users/jmjeong/workspace/journal/org/gitcheetsheet.org" "/Users/jmjeong/workspace/journal/org/index.org" "/Users/jmjeong/workspace/journal/org/iphone-tutorial.org" "/Users/jmjeong/workspace/journal/org/orgmode.org" "/Users/jmjeong/workspace/journal/org/todo.org" "/Users/jmjeong/workspace/journal/org/company/android.org" "/Users/jmjeong/workspace/journal/org/company/interview.org" "/Users/jmjeong/workspace/journal/org/company/kth-MusicAurora.org" "/Users/jmjeong/workspace/journal/org/company/lge.org" "/Users/jmjeong/workspace/journal/org/company/newemployee.org" "/Users/jmjeong/workspace/journal/org/company/sonata.org" "/Users/jmjeong/workspace/journal/org/company/teammeeting.org" "/Users/jmjeong/workspace/journal/org/company/tiffany.org" "/Users/jmjeong/workspace/journal/org/personal/apt09.org" "/Users/jmjeong/workspace/journal/org/personal/buypc.org" "/Users/jmjeong/workspace/journal/org/personal/family-event.org")))
  '(org-agenda-ndays 7)
  '(org-agenda-show-all-dates t)
  '(org-agenda-skip-deadline-if-done t)
