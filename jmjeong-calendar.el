@@ -1,5 +1,5 @@
 ;; calendar korean lunar [2007-12-07] jmjeong
-(if (= emacs-major-version 23)
+(if (>= emacs-major-version 23)
 	(require 'cal-korean)
   (require 'cal-korea22))
 
