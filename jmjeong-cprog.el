@@ -53,10 +53,12 @@
 (global-set-key "\M-p" 'previous-error)
 
 ;; Eldoc mode enable
-; (autoload 'turn-on-eldoc-mode "eldoc" nil t)
-; (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-; (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-; (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(autoload 'turn-on-eldoc-mode "eldoc" nil t)
+(autoload 'auto-show-doc "auto-show-doc" nil t)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook 'auto-show-doc)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
 ;; load c-eldoc mode
 ; (autoload 'turn-on-eldoc-mode "c-eldoc" nil t)
