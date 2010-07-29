@@ -4,9 +4,11 @@
 ;;
 ;; Export org-file into html file and save it into DEVONthink Pro
 
+
+
 (defun org-export-to-devonthink (arg)
   "Call `org-export-to-devonthink` with output to a temporary buffer.
-  No file is created."
+   No file is created."
   (interactive "P")
   (let (content)
 	(org-export-as-html arg nil nil "*Org HTML Export*")
@@ -16,9 +18,9 @@
 	(setq content (replace-regexp-in-string (regexp-quote "\"") "\\\"" content t t))
 	(do-applescript
 	 (format "tell application id \"com.devon-technologies.thinkpro2\"
-              create record with {name:\"%s\", type:html, plain text:\"%s\"} in current group
-              end tell
-             " (buffer-name) content))
+create record with {name:get title of \"%s\", type:html, source:\"%s\", url:\"%s\"} in current group
+end tell
+" content content (buffer-file-name)))
 	)
   )
 
