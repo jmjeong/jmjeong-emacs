@@ -114,6 +114,9 @@
   "Ask before killing buffer")
 (make-variable-buffer-local 'org2blog-buffer-kill-prompt)
 
+(defvar org2blog-use-localtime t
+  "Flag where the org2blog time is local or not")
+
 (defconst org2blog-version "0.2" 
   "Current version of blog.el")
 
@@ -282,6 +285,7 @@
     (save-restriction
       (save-excursion
         (setq narrow-p (not (equal (- (point-max) (point-min)) (buffer-size))))
+		(setq narrow-p t)
         (if narrow-p
             (progn
               (setq post-title (or (org-entry-get (point) "Title")
@@ -310,7 +314,7 @@
 
         ;; Convert post date to ISO timestamp
         ;;add the date of posting to the post. otherwise edits will change it
-        (setq cur-time (format-time-string (org-time-stamp-format t t) (org-current-time) t))
+        (setq cur-time (format-time-string (org-time-stamp-format t t) (org-current-time) (not org2blog-use-localtime)))
         (setq post-date
               (format-time-string "%Y%m%dT%T" 
                                   (if post-date
