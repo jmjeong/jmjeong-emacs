@@ -95,6 +95,7 @@
 (load-library "jmjeong-wordpress")		; org2blog package
 (load-library "jmjeong-autoinstall")	; auto-install
 
+(server-start)
 (garbage-collect)
 
 (custom-set-variables
