@@ -231,6 +231,9 @@
 	  '(("d" todo "WAITING|DELEGATED" nil)
 		("c" todo "DONE|CANCELLED|MAYBE" nil)))
 
+;; for MacTexs
+(setq org-export-latex-default-class 'oblivoir)
+
 ;; [2007-10-08]
 ;;
 ;; (eval-after-load "org"
