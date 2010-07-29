@@ -3,7 +3,7 @@
 (setq org2blog-server-url "http://blog.jmjeong.com/xmlrpc.php"
 	  org2blog-server-user "jmjeong"
 	  org2blog-server-weblog-id "")
-(setq org2blog-use-tags-as-categories t)
+(setq org2blog-use-tags-as-categories nil)
 
 
 
