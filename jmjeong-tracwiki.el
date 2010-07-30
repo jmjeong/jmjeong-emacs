@@ -10,6 +10,8 @@
          :endpoint "http://podo.jmjeong.com/projects/iphone/login/xmlrpc")
 		("intern"
          :endpoint "http://podo.jmjeong.com/trac/InternIphone/login/xmlrpc")
+		("tiffany"
+         :endpoint "http://podo.jmjeong.com/trac/tiffany/login/xmlrpc")
 		)	  
 	  )
 (global-set-key (kbd "C-= C-`") 'trac-wiki)
