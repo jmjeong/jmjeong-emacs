@@ -38,7 +38,6 @@
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-
 (require 'org)
 (require 'xml-rpc)
 (require 'metaweblog)
@@ -223,30 +222,27 @@
 
 (defun upload-images-insert-links ()
   "Uploads images if any in the html, and changes their links"
-  (let ((re 
-	 (concat "\\[\\[\\(.*\\)" 
-		 (substring (org-image-file-name-regexp) 0 -2)
-		 "\\]\\]"))
-	(file-all-urls nil)
-	file-name file-web-url blog-pass)
+  (let ((file-all-urls nil)
+	file-name file-web-url 
+        (image-regexp (org-image-file-name-regexp)))
     (save-excursion
       (goto-char (point-min))
-      (while (re-search-forward re  nil t 1)
-	(setq file-name (concat 
-			 (match-string-no-properties 1)
-			 "."
-			 (match-string-no-properties 2)))
-        (if (string-match "\\(http[s]*\\|ftp\\)://" file-name)
-            ()
-          (setq file-web-url
-                (cdr (assoc "url" 
-                            (metaweblog-upload-image org2blog-server-xmlrpc-url
-                                                     org2blog-server-userid
-                                                     (org2blog-password)
-                                                     org2blog-server-weblog-id
-                                                     (get-image-properties file-name)))))
-          (setq file-all-urls (append file-all-urls (list (cons 
-                                                           file-name file-web-url))))))
+      (while (re-search-forward org-any-link-re  nil t 1)
+        (let ((link (or (match-string-no-properties 2) (match-string-no-properties 0))))
+          (if (and
+               (save-match-data (string-match image-regexp link))
+               (save-match-data (not (string-match org-link-types-re link))))
+              (progn
+                (setq file-name (match-string-no-properties 2))
+                (setq file-web-url
+                      (cdr (assoc "url" 
+                                  (metaweblog-upload-image org2blog-server-xmlrpc-url
+                                                           org2blog-server-userid
+                                                           (org2blog-password)
+                                                           org2blog-server-weblog-id
+                                                           (get-image-properties file-name)))))
+                (setq file-all-urls (append file-all-urls (list (cons 
+                                                                 file-name file-web-url))))))))
       (goto-char (point-min))
       (dolist (image file-all-urls)
 	(replace-string (car image) (cdr image))))))
@@ -284,10 +280,7 @@
   (let* (html-text post-title post-id post-buffer post-date tags categories narrow-p cur-time)
     (save-restriction
       (save-excursion
-        (setq narrow-p (not (equal (- (point-max) (point-min)) (buffer-size))))
-		(setq narrow-p t)
-        (if narrow-p
-            (progn
+		(progn
               (setq post-title (or (org-entry-get (point) "Title")
                                    (nth 4 (org-heading-components))))
               (setq post-id (org-entry-get (point) "Post ID"))
@@ -295,57 +288,38 @@
               (setq post-date (or (org-entry-get (point) "Post Date")
                                   (org-entry-get (point) "SCHEDULED")
                                   (org-entry-get (point) "DEADLINE")
-                                  (org-entry-get (point) "TIMESTAMP_IA")
-                                  (org-entry-get (point) "TIMESTAMP")))
+                                  ))
               (setq tags (mapcar 'org-no-properties (org-get-tags-at (point) nil)))
               (setq categories (org-split-string 
                                 (or (org-entry-get (point) "CATEGORIES") "") ":")))
-          (setq post-buffer (buffer-name))
-          (setq post-title (plist-get (org-infile-export-plist) :title))
-          (setq post-id (org2blog-get-post-id))
-          (setq post-date (plist-get (org-infile-export-plist) :date))
-          (setq tags (plist-get (org-infile-export-plist) :keywords))
-          (setq categories (plist-get (org-infile-export-plist) :description))
-          (setq tags
-                (or (split-string (or tags "") "[ ,]+" t) ""))
-
-          (setq categories
-                (or (split-string (or categories "") "[ ,]+" t) "")))
-
         ;; Convert post date to ISO timestamp
         ;;add the date of posting to the post. otherwise edits will change it
         (setq cur-time (format-time-string (org-time-stamp-format t t) (org-current-time) (not org2blog-use-localtime)))
         (setq post-date
-              (format-time-string "%Y%m%dT%T" 
-                                  (if post-date
-                                      (apply 'encode-time (org-parse-time-string post-date))
-                                    (current-time)
-                                    (if narrow-p
-                                        (org-entry-put (point) "Post Date" cur-time)
-                                      (save-excursion
-                                        (goto-char (point-min))
-                                        (insert (concat "#+DATE: " cur-time "\n")))))
-                                  nil))
+              (format-time-string "%Y%m%dT%T"
+								  (apply 'encode-time (org-parse-time-string
+													   (if post-date post-date
+														 (org-entry-put (point) "Post Date" cur-time)
+														 cur-time)))))
         
         (if org2blog-use-tags-as-categories
             (setq categories tags
                   tags nil))
         
         (upload-images-insert-links)
-        (if (not narrow-p)
-            (setq html-text (org-export-as-html nil nil nil 'string t nil))
-          (setq html-text
+		
+		(setq html-text
                 (org-export-region-as-html
                  (1+ (and (org-back-to-heading) (line-end-position)))
                  (org-end-of-subtree)
-                 t 'string)))
+                 t 'string))
 
         (setq html-text (org2blog-strip-new-lines 
                          (org-no-properties html-text)))))
 
     (list
      (cons "point" (point))
-     (cons "subtree" narrow-p)
+     (cons "subtree" narrow-p)1
      (cons "date" post-date)
      (cons "title" post-title)
      (cons "tags" tags)
