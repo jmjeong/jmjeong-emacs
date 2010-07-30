@@ -125,7 +125,7 @@
  '(org-remember-templates (\` ((110 "* %u %?" (\, (concat org-agenda-directory "notes.org")) "Notes") (116 "* TODO %?
   %u" (\, (concat org-agenda-directory "todo.org")) "Tasks"))))
  '(org-reverse-note-order t)
- '(safe-local-variable-values (quote ((dired-omit-extensions ".html") (dired-omit-mode . t) (dired-actual-switches . "-lat"))))
+ '(safe-local-variable-values (quote ((TeX-master . t) (dired-omit-extensions ".html") (dired-omit-mode . t) (dired-actual-switches . "-lat"))))
  '(scroll-bar-mode nil)
  '(semantic-java-dependency-system-include-path (quote ("/Users/jmjeong/android/1.6_r1.4src/framework/base/core/java/")))
  '(show-paren-mode t)
