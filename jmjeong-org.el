@@ -204,9 +204,6 @@
 
 ;; (setq org-blank-before-new-entry  '((heading . t) (plain-list-item . nil)))
 
-(setq org-tag-alist '(("mac" . ?m) ("emacs" . ?e) ("hobby" . ?h) ("iphone" . ?i)))
-
-
 (setq org-return-follows-link t)
 (setq org-tab-follows-link t)
 
@@ -224,6 +221,8 @@
 (setq org-todo-keywords
 	  '((sequence "TODO(t)" "DELEGATED(l)" "MAYBE(m)" "|"  "DONE(d)" "CANCELLED(x)")))
 
+(setq org-tag-alist '(("mac" . ?m) ("emacs" . ?e) ("hobby" . ?h) ("iphone" . ?i) ("python" . ?P)))
+
 (setq org-todo-keyword-faces
 	  '(("TODO"      . org-warning)
  		("DELEGATED"  . shadow)
@@ -235,7 +234,7 @@
 		("c" todo "DONE|CANCELLED|MAYBE" nil)))
 
 ;; for MacTexs
-(setq org-export-latex-default-class 'oblivoir)
+(setq org-export-latex-default-class "article")
 
 ;; [2007-10-08]
 ;;
