@@ -277,7 +277,7 @@
 (defun org2blog-parse-entry (&optional publish)
   "Parse an org2blog buffer."
   (interactive "P")
-  (let* (html-text post-title post-id post-buffer post-date tags categories narrow-p cur-time)
+  (let* (html-text post-title post-id post-buffer post-date tags categories cur-time)
     (save-restriction
       (save-excursion
 		(progn
@@ -319,7 +319,7 @@
 
     (list
      (cons "point" (point))
-     (cons "subtree" narrow-p)1
+     (cons "subtree" t)
      (cons "date" post-date)
      (cons "title" post-title)
      (cons "tags" tags)
@@ -426,17 +426,17 @@
     (forward-char 2)
     (if (or (looking-at "DESCRIPTION: ") (looking-at "KEYWORDS: "))
       	(progn 
-	  (if (looking-at "KEYWORDS: ")
-	      (setq tag-or-cat-list org2blog-tags-list)
-	    (setq tag-or-cat-list org2blog-categories-list))
-	  (goto-char current-pos)
+		  (if (looking-at "KEYWORDS: ")
+			  (setq tag-or-cat-list org2blog-tags-list)
+			(setq tag-or-cat-list org2blog-categories-list))
+		  (goto-char current-pos)
       	  (let ((word-match (or (current-word t) ""))
-      		(completion-match nil))
+				(completion-match nil))
       	    (when word-match
       	      (setq completion-match (completing-read "Category ? " tag-or-cat-list nil nil word-match))
       	      (when (stringp completion-match)
-      		(search-backward word-match nil t)
-      	      (replace-match (concat completion-match ", ") nil t)))))
+				(search-backward word-match nil t)
+				(replace-match (concat completion-match ", ") nil t)))))
       (progn
       	(goto-char current-pos)
       	(command-execute (lookup-key org-mode-map (kbd "C-c t")))))))

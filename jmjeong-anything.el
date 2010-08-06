@@ -7,8 +7,8 @@
         anything-c-source-buffer-not-found
         anything-c-source-file-name-history
 		anything-c-source-file-cache
-        anything-c-source-info-pages
-        anything-c-source-info-elisp
+        ;; anything-c-source-info-pages
+        ;; anything-c-source-info-elisp
         ; anything-c-source-man-pages
         ; anything-c-source-locate
         ; anything-c-source-emacs-commands

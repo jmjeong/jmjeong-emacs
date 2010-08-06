@@ -204,6 +204,9 @@
 
 ;; (setq org-blank-before-new-entry  '((heading . t) (plain-list-item . nil)))
 
+(setq org-tag-alist '(("mac" . ?m) ("emacs" . ?e) ("hobby" . ?h) ("iphone" . ?i)))
+
+
 (setq org-return-follows-link t)
 (setq org-tab-follows-link t)
 

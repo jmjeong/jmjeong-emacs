@@ -23,8 +23,10 @@
 		 (setq ns-command-modifier 'meta)
 		 ;; (setq ns-option-modifier 'command)
 		 (add-to-list 'exec-path "/opt/local/bin")
+		 (add-to-list 'exec-path "/usr/local/bin")
 		 (add-to-list 'exec-path "/usr/texbin")
 		 (setenv "PATH" (concat "/opt/local/bin" path-separator (getenv "PATH")))
+		 (setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
 		 (setenv "PATH" (concat "/usr/texbin" path-separator (getenv "PATH"))))
 		)
   ;; windows
