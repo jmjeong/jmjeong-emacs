@@ -304,7 +304,7 @@
         ;;add the date of posting to the post. otherwise edits will change it
         (setq cur-time (format-time-string (org-time-stamp-format t t) (org-current-time) (not org2blog-use-localtime)))
         (setq post-date
-              (format-time-string "%Y%m%dT%T"
+              (format-time-string "%Y%m%dT%T%z"
 								  (apply 'encode-time (org-parse-time-string
 													   (if post-date post-date
 														 (org-entry-put (point) "Post Date" cur-time)

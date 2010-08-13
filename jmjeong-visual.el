@@ -56,4 +56,4 @@
 
 ; [2009-07-21]
 (if window-system
-	(set-face-font 'default "-apple-NanumGothicCoding-medium-normal-normal-*-14-*-*-*-m-0-*-*"))
+	(set-face-font 'default "-apple-NanumGothicCoding-medium-normal-normal-*-13-*-*-*-m-0-*-*"))
