@@ -93,6 +93,7 @@
 (load-library "jmjeong-tracwiki")		; tracwiki
 (load-library "jmjeong-devonthink")		; devonthink
 (load-library "jmjeong-wordpress")		; org2blog package
+(load-library "jmjeong-template")		; template mode
 (load-library "jmjeong-autoinstall")	; auto-install
 
 (server-start)
