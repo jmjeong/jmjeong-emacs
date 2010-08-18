@@ -1,4 +1,4 @@
-;; obj-c-modennp
+;; obj-c-mode
 (require 'objc-c-mode)
 (setq auto-mode-alist (cons '("\\.m$" . objc-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.mm$" . objc-mode) auto-mode-alist))
@@ -77,7 +77,41 @@
         (setq cwd (concat cwd "../") max (- max 1))))
     (and found (expand-file-name found))))
 
-;; 오동작..  있는 경우에는 추가하고 없는 경우에는 삭제 하도록 하거나 아니면 priority를 지정하는 방안을 고민해 봐야
-;;
-(add-hook 'dired-mode-hook (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))
-(add-hook 'find-file-hooks (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))
+;; 오동작..  있는 경우에는 추가하고 없는 경우에는 삭제 하도록 하거나 아니면 priority를 지정하는
+;;   방안을 고민해 봐야 [2010-08-18 Wed] auto-mode-alist에 계속 추가가 되기 때문에... directory를
+;;   옮겨다니면서 코딩하는 경우에는 오동작 혹은 성능 이슈
+;;     
+;; (add-hook 'dired-mode-hook (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))
+;; (add-hook 'find-file-hooks (lambda () (when (xcode-root) (setq auto-mode-alist (cons '("\\.h$" . objc-mode) auto-mode-alist)))))
+
+
+;; .h 를 읽을 때 해당 내용을 파악하여 모드 결정
+
+(defun my-header-file-mode-hook ()  
+  (if (string-equal (file-name-extension buffer-file-name) "h")  
+	  (let ((filebase (file-name-sans-extension buffer-file-name)))  
+		(cond  
+		 ((file-exists-p (concat filebase ".c"))  
+		  (c-mode)  
+		  )  
+		 ((file-exists-p (concat filebase ".cpp"))  
+		  (c++-mode)  
+		  )  
+		 ((file-exists-p (concat filebase ".cc"))  
+		  (c++-mode)  
+		  )  
+		 ((file-exists-p (concat filebase ".m"))  
+		  (objc-mode)  
+		  )  
+		 ((file-exists-p (concat filebase ".mm"))  
+		  (objc-mode)  
+		  )  
+		 (t  
+		  (objc-mode)  
+		  )  
+		 )  
+		)  
+	)  
+  )  
+(add-hook 'find-file-hook 'my-header-file-mode-hook)
+;; (add-hook 'dired-mode-hook 'my-header-file-mode-hook)  
