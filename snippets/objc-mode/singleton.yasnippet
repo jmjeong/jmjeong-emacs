@@ -1,0 +1,47 @@
+# -*- mode: snippet -*-
+# name: singleton
+# --
+
+#pragma mark -
+#pragma mark Singleton
+
+static ${1:ClassName} *_shared${1:$(yas/substr text "[^: ]*")} = nil;
+
++(${1:$(yas/substr text "[^: ]*")} *) shared${1:$(yas/substr text "[^: ]*")};
+{
+    @synchronized([${1:$(yas/substr text "[^: ]*")} class]) {
+        if (_shared${1:$(yas/substr text "[^: ]*")} == nil) {
+            [[self alloc] init];
+        }
+        
+        return _shared${1:$(yas/substr text "[^: ]*")};
+    }
+    
+    return nil;
+}
+
++(id) alloc
+{
+    @synchronized([${1:$(yas/substr text "[^: ]*")} class]) {
+        NSAssert(_shared${1:$(yas/substr text "[^: ]*")} == nil, @"Attempted to allocate a second instance of a singleton.");
+        _shared${1:$(yas/substr text "[^: ]*")} = [[super alloc] init];
+        return _shared${1:$(yas/substr text "[^: ]*")};
+    }
+    
+    return nil;
+}
+
+-(id) init
+{
+    self = [super init];
+    if (self) {
+	    // initialize code
+        ${2:}	
+    }
+    return self;
+}
+
+-(void) dealloc
+{
+    [super dealloc];
+}
