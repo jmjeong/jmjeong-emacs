@@ -7,7 +7,7 @@
 
 static ${1:ClassName} *_shared${1:$(yas/substr text "[^: ]*")} = nil;
 
-+(${1:$(yas/substr text "[^: ]*")} *) shared${1:$(yas/substr text "[^: ]*")};
++(${1:$(yas/substr text "[^: ]*")} *) instance;
 {
     @synchronized([${1:$(yas/substr text "[^: ]*")} class]) {
         if (_shared${1:$(yas/substr text "[^: ]*")} == nil) {
