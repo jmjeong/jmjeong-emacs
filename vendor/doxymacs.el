@@ -2,12 +2,12 @@
 ;;; doxymacs.el --- ELisp package for making doxygen related stuff easier.
 ;;
 ;;
-;; Copyright (C) 2001, 2002, 2003, 2005 Ryan T. Sammartino
+;; Copyright (C) 2001-2007 Ryan T. Sammartino
 ;;
-;; Author: Ryan T. Sammartino <ryants at shaw dot ca>
+;; Author: Ryan T. Sammartino <ryan.sammartino at gmail dot com>
 ;;      Kris Verbeeck <kris.verbeeck at advalvas dot be>
 ;; Created: 24/03/2001
-;; Version: 1.6.0
+;; Version: 1.8.0
 ;; Keywords: doxygen documentation
 ;;
 ;; This file is NOT part of GNU Emacs or XEmacs.
@@ -28,7 +28,7 @@
 ;;
 ;; Doxymacs homepage: http://doxymacs.sourceforge.net/
 ;;
-;; $Id: doxymacs.el.in,v 1.20 2005/06/04 16:05:30 ryants Exp $
+;; $Id: doxymacs.el.in,v 1.26 2007/06/10 13:17:24 ryants Exp $
 
 ;; Commentary:
 ;;
@@ -107,7 +107,7 @@
 ;;   - C-c d @ will insert grouping comments around the current region.
 ;;
 ;; Doxymacs has been tested on and works with:
-;; - GNU Emacs 20.7.1, 21.1.1, 21.2.1, 21.2.92.1, 21.3
+;; - GNU Emacs 20.7.1, 21.1.1, 21.2.1, 21.2.92.1, 21.3, 21.4.1
 ;; - XEmacs 21.1 (patch 14), 21.4 (patches 4-17)
 ;;
 ;; If you have success or failure with other version of {X}Emacs, please
@@ -115,6 +115,13 @@
 
 ;; Change log:
 ;;
+;; 10/06/2007 - version 1.8.0 
+;; 02/02/2007 - bug #1490021: Allow spaces in @param [in] documentation.
+;;              bug #1496399: Allow for different ways of user-mail-address
+;;              to be defined.
+;; 22/04/2006 - feature #1338245: Add tokens to filladapt to match 
+;;              doxygen markup.
+;;            - version 1.7.0
 ;; 04/06/2005 - version 1.6.0
 ;; 14/04/2005 - Use doxymacs-url-exists-p to wrap the various ways of
 ;;              checking whether a URL exists.
@@ -236,7 +243,7 @@
 (require 'url)
 (require 'tempo)
 
-(defconst doxymacs-version "1.6.0"
+(defconst doxymacs-version "1.8.0"
   "Doxymacs version number")
 
 (defun doxymacs-version ()
@@ -303,7 +310,7 @@ must be one of \"@\" or \"\\\"."
 For smallish tag files, you are better off with the internal parser.
 For larger tag files, you are better off with the external one.
 Set to non-nil to use the external XML parser."
-  :type '(chioce (const :tag "Yes" t)
+  :type '(choice (const :tag "Yes" t)
 		 (const :tag "No" nil))
   :group 'doxymacs)
 
@@ -477,7 +484,15 @@ Key bindings:
             ;; Toggle mode
             (not doxymacs-mode)
           ;; Enable/Disable according to arg
-          (> (prefix-numeric-value arg) 0))))
+          (> (prefix-numeric-value arg) 0)))
+  (when doxymacs-mode
+    (when (boundp 'filladapt-token-table)
+      ;; add tokens to filladapt to match doxygen markup
+      (let ((bullet-regexp "[@\\]\\(param\\(?:\\s-*\\[\\(?:in\\|out\\|in,out\\)\\]\\)?\\s-+\\sw+\\|return\\)"))
+	(unless (assoc bullet-regexp filladapt-token-table)
+	  (setq filladapt-token-table
+		(append filladapt-token-table
+			(list (list bullet-regexp 'bullet)))))))))
 
 ;; Keymap
 
@@ -541,7 +556,7 @@ Key bindings:
     '(0 font-lock-warning-face prepend))
    ;; keywords that take a variable name as an argument
    (list
-    (concat "\\([@\\\\]\\(param\\(?:\\[\\(?:in\\|out\\|in,out\\)\\]\\)?"
+    (concat "\\([@\\\\]\\(param\\(?:\\s-*\\[\\(?:in\\|out\\|in,out\\)\\]\\)?"
 	    "\\|a\\|namespace\\|relates\\(also\\)?"
 	    "\\|var\\|def\\)\\)\\s-+\\(\\sw+\\)")
     '(1 font-lock-keyword-face prepend)
@@ -1101,6 +1116,14 @@ the completion or nil if canceled by the user."
    ((string= doxymacs-doxygen-style "C++") "@")
    (t "@")))
 
+(defun doxymacs-user-mail-address ()
+  "Return the user's email address"
+  (or
+   (and (and (fboundp 'user-mail-address) (user-mail-address))
+	(list 'l " <" (user-mail-address) ">"))
+   (and (and (boundp 'user-mail-address) user-mail-address)
+	(list 'l " <" user-mail-address ">"))))
+
 (defconst doxymacs-JavaDoc-file-comment-template
  '("/**" > n
    " * " (doxymacs-doxygen-command-char) "file   "
@@ -1108,8 +1131,7 @@ the completion or nil if canceled by the user."
        (file-name-nondirectory (buffer-file-name))
      "") > n
    " * " (doxymacs-doxygen-command-char) "author " (user-full-name)
-   (if (fboundp 'user-mail-address)
-       (list 'l " <" (user-mail-address) ">"))
+   (doxymacs-user-mail-address)
    > n
    " * " (doxymacs-doxygen-command-char) "date   " (current-time-string) > n
    " * " > n
@@ -1126,8 +1148,7 @@ the completion or nil if canceled by the user."
        (file-name-nondirectory (buffer-file-name))
      "") > n
    " " (doxymacs-doxygen-command-char) "author " (user-full-name)
-   (if (fboundp 'user-mail-address)
-       (list 'l " <" (user-mail-address) ">"))
+   (doxymacs-user-mail-address)
    > n
    " " (doxymacs-doxygen-command-char) "date   " (current-time-string) > n
    " " > n
@@ -1144,8 +1165,7 @@ the completion or nil if canceled by the user."
        (file-name-nondirectory (buffer-file-name))
      "") > n
    "/// " (doxymacs-doxygen-command-char) "author " (user-full-name)
-   (if (fboundp 'user-mail-address)
-       (list 'l " <" (user-mail-address) ">"))
+   (doxymacs-user-mail-address)
    > n
    "/// " (doxymacs-doxygen-command-char) "date   " (current-time-string) > n
    "/// " > n
