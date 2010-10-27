@@ -21,6 +21,8 @@
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/pylookup"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex/preview"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/nxhtml"))
+
 
 ;; Add all top-level subdirectories of my-dot-emacs
 ;; (progn (cd "~/my-dot-emacs")
@@ -98,6 +100,7 @@
 (load-library "jmjeong-template")		; template mode
 (load-library "jmjeong-auctex")			; auctex
 (load-library "jmjeong-etc")			; rainbow
+;(load-library "jmjeong-nxhtml")			; nxhtml
 (load-library "jmjeong-autoinstall")	; auto-install
 
 (server-start)

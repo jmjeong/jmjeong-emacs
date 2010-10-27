@@ -1,5 +1,7 @@
 vendor/howm-1.3.7/*
 vendor/ecb-2.32/*
+vendor/django-html-mode
+.bzr
 *.elc
 CVS
 .svn
