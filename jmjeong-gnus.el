@@ -1,4 +1,4 @@
-(setq user-mail-address "jmjeong@nemustech.com")
+(setq user-mail-address "jmjeong@gmail.com")
 (setq user-full-name "Jaemok Jeong")
 
 (setq mail-user-agent 'sendmail-user-agent)

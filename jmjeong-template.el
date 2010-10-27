@@ -6,7 +6,7 @@
 
 ;; (setq file-template-paths "~/my-dot-elisp/template")
 (setq file-template-paths (concat elisp-root-dir "/template"))
-(setq file-template-insert-automatically 'ask)
+(setq file-template-insert-automatically nil)
 
 ;; (setq file-template-mapping-alist
 ;; 	  (cons  '("\\.m$" . "template.m") file-template-mapping-alist))

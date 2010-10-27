@@ -221,7 +221,7 @@
 (setq org-todo-keywords
 	  '((sequence "TODO(t)" "DELEGATED(l)" "MAYBE(m)" "|"  "DONE(d)" "CANCELLED(x)")))
 
-(setq org-tag-alist '(("mac" . ?m) ("emacs" . ?e) ("hobby" . ?h) ("iphone" . ?i) ("python" . ?P)))
+(setq org-tag-alist '(("mac" . ?m) ("emacs" . ?e) ("hobby" . ?h) ("iphone" . ?i) ("python" . ?p)))
 
 (setq org-todo-keyword-faces
 	  '(("TODO"      . org-warning)

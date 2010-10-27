@@ -1,5 +1,4 @@
 vendor/howm-1.3.7/*
-vendor/cedet/*
 vendor/ecb-2.32/*
 *.elc
 CVS

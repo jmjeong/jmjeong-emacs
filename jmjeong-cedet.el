@@ -4,7 +4,9 @@
 ;;
 ;; See cedet/common/cedet.info for configuration details.
 
-(require 'cedet)
+;; (add-to-list 'load-path (concat elisp-root-dir "/vendor/cedet"))
+(load-file (concat elisp-root-dir "/vendor/cedet/common/cedet.el"))
+;; (require 'cedet) 
 
 ;; Enable EDE (Project Management) features
 (global-ede-mode 1)
@@ -20,12 +22,16 @@
 
 ;; * This enables some tools useful for coding, such as summary mode
 ;;   imenu support, and the semantic navigator
-;;(semantic-load-enable-code-helpers)
+;; (semantic-load-enable-code-helpers)
 
 ;; * This enables even more coding tools such as intellisense mode
 ;;   decoration mode, and stickyfunc mode (plus regular code helpers)
 ;;(semantic-load-enable-gaudy-code-helpers)
 (global-set-key [(meta return)] 'semantic-complete-analyze-inline)
+
+(require 'semantic-ia)
+(require 'semanticdb)
+(global-semanticdb-minor-mode 1)
 
 ;; Block confusing display
 ;; (global-semantic-stickyfunc-mode)

@@ -1594,9 +1594,9 @@ overrides the current directory, which would otherwise be used."
   (interactive)
   (let ()
     (if overlay-arrow-position
-	(set-marker overlay-arrow-position nil))
+		(set-marker overlay-arrow-position nil))
     (setq overlay-arrow-position nil
-	  overlay-arrow-string nil)
+		  overlay-arrow-string nil)
     (bury-buffer (get-buffer cscope-output-buffer-name))
     ))
 
