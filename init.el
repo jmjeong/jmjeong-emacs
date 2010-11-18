@@ -100,6 +100,7 @@
 (load-library "jmjeong-template")		; template mode
 (load-library "jmjeong-auctex")			; auctex
 (load-library "jmjeong-etc")			; rainbow
+(load-library "jmjeong-django-html")	; django-html mode
 ;(load-library "jmjeong-nxhtml")			; nxhtml
 (load-library "jmjeong-autoinstall")	; auto-install
 
