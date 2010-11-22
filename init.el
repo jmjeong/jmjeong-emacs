@@ -22,7 +22,7 @@
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex/preview"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/nxhtml"))
-
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/magit"))
 
 ;; Add all top-level subdirectories of my-dot-emacs
 ;; (progn (cd "~/my-dot-emacs")
