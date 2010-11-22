@@ -8,6 +8,7 @@
 		("x" . jm-switch-to-svn-status-buffer)
 		("g" . gnus)
 		("C-x" . git-status)
+		("C-a" . magit-status)
 		("m" . mew)
         ("z" . other-frame)
         ("C-z" . other-frame)
