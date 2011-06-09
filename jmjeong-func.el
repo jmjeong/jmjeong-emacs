@@ -57,9 +57,9 @@
    (do-applescript
 	"tell application \"iTunes\"
            set currentTrack to the current track
-           set artist_name to the artist of currentTrack
+           set composer_name to the composer of currentTrack
            set song_title to the name of currentTrack
-           return artist_name & \" - \" & song_title
+           return composer_name & \" - \" & song_title
         end tell")))
 
 (defun jm-switch-to-svn-status-buffer ()
