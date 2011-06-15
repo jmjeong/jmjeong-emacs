@@ -1,9 +1,12 @@
 It's Magit!  An Emacs mode for Git.
 ===================================
 
-Magit is an interface to Git for Emacs. Unlike Emacs's native
-[version control support][vc], Magit can take advantage of Git's
-native features without breaking compatibility with other systems.
+Magit is an interface to Git for Emacs, supporting GNU Emacs 22 or
+later.
+
+ Unlike Emacs's native [version control support][vc], Magit can take
+advantage of Git's native features without breaking compatibility with
+other systems.
 
 To get started see the [Magit User Manual][manual] or perhaps the
 [cheatsheet][cheatsheet] if you're in a hurry. There's also an
@@ -36,6 +39,10 @@ options.
 
 `(require 'magit-topgit)` - integrates with topgit.
 
+### git-stgit
+
+`(require 'magit-stgit)` - integrates with StGit.
+
 Getting started
 ---------------
 
@@ -67,10 +74,10 @@ Magit's canonical source repository is currently
 [hosted on GitHub][development].
 
 [vc]: http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html#Version-Control
-[website]: http://philjackson.github.com/magit
-[development]: http://github.com/philjackson/magit
-[manual]: http://philjackson.github.com/magit/magit.html
+[website]: http://magit.github.com/magit
+[development]: http://github.com/magit/magit
+[manual]: http://magit.github.com/magit/magit.html
 [cheatsheet]: http://daemianmack.com/magit-cheatsheet.html
 [screencast]: http://vimeo.com/2871241
-[download]: http://github.com/philjackson/magit/downloads
+[download]: http://github.com/magit/magit/downloads
 [google group]: http://groups.google.com/group/magit/
