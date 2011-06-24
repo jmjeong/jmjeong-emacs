@@ -16,7 +16,7 @@
 (defun minibuffer-setter ()
   (setq truncate-lines nil))
 ;; this is replacement of iswitchb-default-keybindings
-(iswitchb-default-keybindings)
+;(iswitchb-default-keybindings)
 (add-hook 'iswitchb-define-mode-map-hook
           'iswitchb-my-keys)
 (defun iswitchb-my-keys ()
