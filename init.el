@@ -68,7 +68,7 @@
 (load-library "jmjeong-cprog")			; c programming
 (load-library "jmjeong-graphviz")
 (load-library "jmjeong-calendar")		; lunar calendar and diary stuff
-(load-library "jmjeong-objc")			; objective-cc
+;(load-library "jmjeong-objc")			; objective-cc
 (load-library "jmjeong-python")			; python
 (load-library "jmjeong-git")			; git
 (load-library "jmjeong-maxframe")		; maxframe
