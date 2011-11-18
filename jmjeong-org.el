@@ -412,3 +412,20 @@ See `org-publish-org-to' to the list of arguments."
 ;; 		  ;; (browse-url "http://localhost:8080")
 ;; 		  (message "blogofile build"))))))
 
+;; org-toodledo [2011-11-18 Fri]
+;;
+
+;; set this variables in ~/.emacs.private/...
+;; (setq org-toodledo-userid "")    
+;; (setq org-toodledo-password "")
+
+;;    ;; Useful key bindings for org-mode
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-unset-key "\C-o")
+            (local-set-key "\C-od" 'org-toodledo-mark-task-deleted)
+            (local-set-key "\C-os" 'org-toodledo-sync)
+            )
+          )
+
+

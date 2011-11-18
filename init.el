@@ -23,6 +23,7 @@
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex/preview"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/nxhtml"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/magit"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/pydoc-info-0.2"))
 
 ;; Add all top-level subdirectories of my-dot-emacs
 ;; (progn (cd "~/my-dot-emacs")
@@ -114,9 +115,10 @@
   ;; If there is more than one, they won't work right.
  '(canlock-password "154f9f29ee266ade1cca710c233702480de625f0")
  '(display-time-mode t)
+ '(fringe-mode (quote (5 . 5)) nil (fringe))
  '(git-baseline-commit (quote (("/Users/jmjeong/t/blogofile.com/" . "blogofile.com"))) t)
  '(mm-charset-override-alist (quote ((gb2312 . gbk) (iso-8859-1 . windows-1252) (iso-8859-8 . windows-1255) (iso-8859-9 . windows-1254) (x-windows-949 . euc-kr) (unicode-1-1-utf-7 . utf-8))))
- '(org-agenda-files (quote ("~/workspace/journal/org/todo.org")))
+ '(org-agenda-files (quote ("~/workspace/journal/org/org.org" "~/workspace/journal/org/todo.org")))
  '(org-agenda-ndays 7)
  '(org-agenda-show-all-dates t)
  '(org-agenda-skip-deadline-if-done t)
