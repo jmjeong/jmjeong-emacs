@@ -419,6 +419,7 @@ See `org-publish-org-to' to the list of arguments."
 ;; (setq org-toodledo-userid "")    
 ;; (setq org-toodledo-password "")
 
+(require 'org-toodledo)
 ;;    ;; Useful key bindings for org-mode
 (add-hook 'org-mode-hook
           (lambda ()
