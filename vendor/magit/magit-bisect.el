@@ -1,7 +1,3 @@
-(require 'magit)
-
-(defvar magit--bisect-last-pos)
-(defvar magit--bisect-tmp-file)
 (defvar magit--bisect-info nil)
 (make-variable-buffer-local 'magit--bisect-info)
 (put 'magit--bisect-info 'permanent-local t)
@@ -123,6 +119,8 @@ match REQUIRED-STATUS."
 
 (defun magit-bisect-run (command)
   "Bisect automatically by running commands after each step"
+  (unless (magit--bisecting-p)
+    (error "Not bisecting"))
   (interactive
    (list
     (read-from-minibuffer "Run command (like this): "
@@ -130,8 +128,6 @@ match REQUIRED-STATUS."
                           magit-bisect-minibuffer-local-map
                           nil
                           'magit-bisect-mode-history)))
-  (unless (magit--bisecting-p)
-    (error "Not bisecting"))
   (let ((file (make-temp-file "magit-bisect-run"))
         buffer)
     (with-temp-buffer
@@ -194,3 +190,4 @@ match REQUIRED-STATUS."
                             (abbreviate-file-name default-directory)))))))))
 
 (provide 'magit-bisect)
+

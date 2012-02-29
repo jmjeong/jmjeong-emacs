@@ -10,7 +10,7 @@
 (setq display-time-day-and-date t)
 
 ;; long line [2011-05-06 Fri]
-; (global-visual-line-mode t)
+(global-visual-line-mode t)
 
 ; ediff configuration [2009-03-05]
 (setq ediff-merge-split-window-function (quote split-window-horizontally))

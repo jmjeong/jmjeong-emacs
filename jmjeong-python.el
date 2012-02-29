@@ -1,3 +1,4 @@
+
 ;; python mode
 ;(load "python-mode" nil t)
 ;(autoload 'python-mode "python-mode" "Python editing mode." t)
@@ -14,8 +15,8 @@
 					(eldoc-mode 1))))
 
 ;; iPython settting
-;; (setq ipython-command "/usr/local/bin/ipython")
-;; (require 'ipython)
+;(setq ipython-command "/usr/local/bin/ipython")
+;(require 'ipython)
 ;; (setq py-python-command-args '("-colors" "NoColor")) 
 
 ;; ======================================================================
