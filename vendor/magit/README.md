@@ -19,8 +19,10 @@ Installing
 Download the latest tarball from [the github download page][download],
 then Magit can be installed with the popular recipe of:
 
-make && sudo make install
+    $ make && sudo make install
 
+This requires `emacs` and `makeinfo` binaries, so please make sure the relevant
+packages (generally `emacs` and `texinfo`) are installed on your system.
 This will put magit.el into `/usr/local/share/emacs/site-lisp`, where
 Emacs should be able to find it.  Then add
 
@@ -66,9 +68,11 @@ Magit's website is currently hosted [on GitHub][website].
 Development
 -----------
 
-Magit was started by Marius Vollmer. Phil Jackson is the lead
-developer. For a full list of contributors have a look at `magit.el`
-in the source distribution.
+Magit was started by Marius Vollmer. It is now collectively maintained by the
+Magit Owners Team: https://github.com/organizations/magit/teams/53130
+
+For a full list of contributors have a look at `magit.el` in the
+source distribution.
 
 Magit's canonical source repository is currently
 [hosted on GitHub][development].

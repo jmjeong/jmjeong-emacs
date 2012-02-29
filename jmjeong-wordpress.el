@@ -1,4 +1,4 @@
-(require 'org2blog)
+(require 'org2blog-autoloads)
 
 (setq org2blog-server-url "http://jmjeong.com/xmlrpc.php"
 	  org2blog-server-user "jmjeong"

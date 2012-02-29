@@ -24,6 +24,7 @@
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/nxhtml"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/magit"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/org-toodledo"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/org2blog"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/orgmode/lisp"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/pydoc-info-0.2"))
 
