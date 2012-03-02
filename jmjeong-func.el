@@ -105,16 +105,16 @@
 (delete-selection-mode 1) ; 윈도우처럼, 선택된 regeion 을 DEL 로 지우거나, 다른 글자를 타이핑 할때 즉시 지운다.
 ;; (which-function-mode 1)					; 어떤 함수를 수정중인지 표현 
 
-;; Backup 파일을 .backups directory에 만듦(backups가 없으면, 뒤에 ~를 붙임)
+;; Backup 파일을 .backups directory에 만듬(없으면 디렉토리부터 만듬)
 ;;    (replace built-in make-backup-file-name function)
 ;;
 (defun make-backup-file-name (file-name)
   "Create the non-numeric backup file name for `file-name'."
   (require 'dired)
-  (if (file-exists-p "~/.backups")
-      (concat (expand-file-name "~/.backups/")
-              (dired-replace-in-string "/" "|" file-name))
-    (concat file-name "~")))
+  (if (not (file-exists-p "~/.backups"))
+	  (make-directory "~/.backups"))
+  (concat (expand-file-name "~/.backups/")
+		  (dired-replace-in-string "/" "|" file-name)))
 
 ;; % 이동
 (define-key global-map (kbd "%") 'match-paren)

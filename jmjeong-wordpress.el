@@ -5,12 +5,10 @@
 	  org2blog-server-weblog-id "")
 (setq org2blog-use-tags-as-categories nil)
 
-
-(setq org2blog-blog-alist
+ (setq org2blog/wp-blog-alist
        '(("jmjeong"
           :url "http://jmjeong.com/xmlrpc.php"
-          :username "jmjeong"   
+          :username "jmjeong"
           :default-title "Org"
           :default-categories ("org2blog" "emacs")
-          :tags-as-categories nil)
-		 ))
+          :tags-as-categories nil)))
