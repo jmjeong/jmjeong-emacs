@@ -17,7 +17,7 @@
 (add-to-list 'load-path (concat elisp-root-dir "/vendor"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/bbdb"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/yasnippet"))
-(add-to-list 'load-path (concat elisp-root-dir "/vendor/emacs-w3m"))
+;; (add-to-list 'load-path (concat elisp-root-dir "/vendor/emacs-w3m"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/pylookup"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex/preview"))
@@ -77,7 +77,7 @@
 (load-library "jmjeong-git")			; git
 (load-library "jmjeong-maxframe")		; maxframe
 (load-library "jmjeong-autocomplete")	; auto-complete
-(load-library "jmjeong-w3m")			; w3m
+;; (load-library "jmjeong-w3m")			; w3m
 (load-library "jmjeong-bbdb")			; bbdb
 (load-library "jmjeong-php")			; php
 (load-library "jmjeong-gnus")			; gnus
@@ -144,7 +144,7 @@
  '(scroll-bar-mode nil)
  '(semantic-java-dependency-system-include-path (quote ("/Users/jmjeong/android/1.6_r1.4src/framework/base/core/java/")))
  '(show-paren-mode t)
- '(w3m-use-tab nil))
+ )
 
 (put 'narrow-to-region 'disabled nil)
 (custom-set-faces
