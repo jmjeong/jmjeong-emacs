@@ -21,6 +21,7 @@
 		 (set-face-font 'default "NanumGothicCoding-14")
 		 ;; mac에서는 command 키를 meta key로 사용
 		 (setq ns-command-modifier 'meta)
+		 (setq ring-bell-function 'ignore)		 
 		 ;; (setq ns-option-modifier 'command)
 		 (add-to-list 'exec-path "/opt/local/bin")
 		 (add-to-list 'exec-path "/usr/local/bin")
