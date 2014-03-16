@@ -24,6 +24,11 @@
 (add-to-list 'auto-mode-alist '("markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README$" . markdown-mode))
 
+(defun markdown-unset-tab ()
+  "markdown-mode-hook"
+  (define-key markdown-mode-map (kbd "<tab>") nil))
+(add-hook 'markdown-mode-hook '(lambda() (markdown-unset-tab)))
+
 (defun markdown-preview-file ()
   "run Marked on the current file and revert the buffer"
   (interactive)
