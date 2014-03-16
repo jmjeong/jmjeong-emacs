@@ -192,6 +192,15 @@
 (load "sourcepair")
 (setq sourcepair-source-extensions (quote (".cpp" ".cxx" ".cc" ".C" ".c" ".m")))
 
+(unless (fboundp 'process-live-p)
+  (defun process-live-p (process)
+    "Returns non-nil if PROCESS is alive.
+A process is considered alive if its status is `run', `open',
+`listen', `connect' or `stop'."
+    (memq (process-status process)
+          '(run open listen connect stop))))
+
+
 ;; Desktop save mode
 ; (add-to-list 'desktop-globals-to-save 'file-name-history)  
 ; (setq history-length 250)
@@ -203,3 +212,4 @@
 ;(load "tabbar" nil t)
 
 ;; (load "jmjeong-devenv" nil t)
+
