@@ -78,7 +78,7 @@ contains the date."
     (let ((filename
            (concat jekyll-directory jekyll-posts-dir
                    (format-time-string "%Y-%m-%d-")
-                   (file-name-nondirectoryd
+                   (file-name-nondirectory
                     (buffer-file-name (current-buffer)))))
           (old-point (point)))
       (rename-file (buffer-file-name (current-buffer))
