@@ -22,10 +22,11 @@
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex/preview"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/nxhtml"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/git-modes"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/magit"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/org-toodledo"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/org2blog"))
-(add-to-list 'load-path (concat elisp-root-dir "/vendor/orgmode/lisp"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/org-mode/lisp"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/pydoc-info-0.2"))
 
 ;; Add all top-level subdirectories of my-dot-emacs
