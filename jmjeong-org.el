@@ -1,6 +1,7 @@
 (require 'calendar)
 (require 'org)
 (require 'org-install)
+(require 'org-loaddefs)
 
 ;; [2007-04-03] Windows면 설정 directory를 d:/workspace에서 읽고, 아니면 홈 directory에서 읽도록
 ;;

@@ -1,0 +1,5 @@
+(require 'jekyll)
+(jekyll-init-keybindings)
+(setq jekyll-directory "/Users/jmjeong/git/jmjeong.github.io/")
+(setq jekyll-post-template "---\nlayout: post\ntitle: %s\ndescription: \ncategory: \ntags: \n---\n{%% include JB/setup %%}\n\n")
+(setq jekyll-post-ext ".md")

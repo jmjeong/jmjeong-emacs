@@ -22,10 +22,11 @@
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex/preview"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/nxhtml"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/git-modes"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/magit"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/org-toodledo"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/org2blog"))
-(add-to-list 'load-path (concat elisp-root-dir "/vendor/orgmode/lisp"))
+(add-to-list 'load-path (concat elisp-root-dir "/vendor/org-mode/lisp"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/pydoc-info-0.2"))
 
 ;; Add all top-level subdirectories of my-dot-emacs
@@ -103,6 +104,7 @@
 (load-library "jmjeong-wordpress")		; org2blog package
 (load-library "jmjeong-template")		; template mode
 (load-library "jmjeong-auctex")			; auctex
+(load-library "jmjeong-jekyll")			; jekyll
 (load-library "jmjeong-etc")			; rainbow
 (load-library "jmjeong-django-html")	; django-html mode
 ;(load-library "jmjeong-nxhtml")			; nxhtml
@@ -130,8 +132,13 @@
  '(org-deadline-warning-days 14)
  '(org-default-notes-file (concat org-agenda-directory "/notes.org"))
  '(org-emphasis-regexp-components (quote (" 	('\"{" "- 	.,:!?;'\")}[:multibyte:]" " 	
-,\"'" "." 1)))
+,\"'" "." 1)) t)
+ '(org-export-backends (quote (ascii html icalendar latex md)))
  '(org-export-html-style-include-scripts nil)
+ '(org-export-with-date nil)
+ '(org-export-with-tags nil)
+ '(org-export-with-timestamps nil)
+ '(org-export-with-toc nil)
  '(org-fast-tag-selection-single-key (quote expert))
  '(org-mobile-directory "/Volumes/jmjeong/org")
  '(org-mobile-files (quote (org-agenda-files org-agenda-text-search-extra-files)))
@@ -143,8 +150,7 @@
  '(safe-local-variable-values (quote ((TeX-master . t) (dired-omit-extensions ".html") (dired-omit-mode . t) (dired-actual-switches . "-lat"))))
  '(scroll-bar-mode nil)
  '(semantic-java-dependency-system-include-path (quote ("/Users/jmjeong/android/1.6_r1.4src/framework/base/core/java/")))
- '(show-paren-mode t)
- )
+ '(show-paren-mode t))
 
 (put 'narrow-to-region 'disabled nil)
 (custom-set-faces
