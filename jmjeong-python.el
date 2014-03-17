@@ -1,5 +1,4 @@
 ;; python mode
-;(load "python-mode" nil t)
 ;(autoload 'python-mode "python-mode" "Python editing mode." t)
 
 ;; (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
@@ -7,7 +6,7 @@
 ;;                                       interpreter-mode-alist))
 
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-(autoload 'python-mode "python-mode" "Python editing mode." t)
+(autoload 'python-mode "python" "Python editing mode." t)
 (setq python-mode-hook
 	  '(lambda () (progn
 					(set-variable 'py-indent-offset 4)
@@ -16,9 +15,9 @@
 					(set-variable 'py-load-pymacs-p nil)
 					(eldoc-mode 1))))
 
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
+;; (require 'pymacs)
+;; (pymacs-load "ropemacs" "rope-")
+;; (setq ropemacs-enable-autoimport t)
 
 ;; (autoload 'pymacs-apply "pymacs")
 ;; (autoload 'pymacs-call "pymacs")
