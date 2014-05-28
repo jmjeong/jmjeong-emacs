@@ -1,5 +1,6 @@
 ;; markdown mode [2009-07-23]
-(autoload 'markdown-mode "markdown-mode.el"
+(require 'markdown-mode)
+(autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 
 (add-hook 'markdown-mode-hook
