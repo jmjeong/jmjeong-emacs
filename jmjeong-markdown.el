@@ -13,10 +13,11 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.text$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.txt$" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.txt$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("readme$" . markdown-mode))
 
 (defun markdown-preview-file ()
   "run Marked on the current file and revert the buffer"
