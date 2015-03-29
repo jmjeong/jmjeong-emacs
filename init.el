@@ -109,6 +109,7 @@
 (load-library "jmjeong-django-html")	; django-html mode
 ;(load-library "jmjeong-nxhtml")			; nxhtml
 (load-library "jmjeong-autoinstall")	; auto-install
+(load-library "jmjeong-jade")	        ; jade-mode
 
 (server-start)
 (garbage-collect)
