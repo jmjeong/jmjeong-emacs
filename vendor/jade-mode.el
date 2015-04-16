@@ -6,6 +6,8 @@
 (require 'font-lock)
 (require 'js)
 
+(defvar jade-tab-width)
+
 (defun jade-debug (string &rest args)
   "Prints a debug message"
   (apply 'message (append (list string) args)))
@@ -119,7 +121,7 @@
     (jade-highlight-js-after-tag 1 font-lock-preprocessor-face)
 
     ;; doctype re-overrides some of the fontification rules
-    ("!!!\\|doctype[ ]?.*" 0 font-lock-comment-face t)))
+    ("^!!!\\|doctype[ ]?.*" 0 font-lock-comment-face t)))
 
 (defun jade-highlight-js-in-parens (limit)
   "Search for a tag declaration (up to LIMIT) which contains a paren
@@ -187,8 +189,8 @@ declaration"
   (beginning-of-line)
   (let ((ci (current-indentation)))
     (push-mark nil nil t)
-    (while (> (jade-next-line-indent) ci)
-      (next-line)
+    (while (> (jade-next-line-indentation) ci)
+      (forward-line)
       (end-of-line))))
 
 (defun jade-indent ()
@@ -307,6 +309,18 @@ Follows indentation behavior of `indent-rigidly'."
     (let ((prev-line-indent (current-indentation)))
       prev-line-indent)))
 
+(defun jade-next-line-indentation ()
+  "Get the indentation of the next (non-blank) line (from point)."
+  (interactive)
+  (save-excursion
+
+    ;; move down to the next non-blank line (or buffer end)
+    (while (progn ;; progn used to get do...while control flow
+             (forward-line 1)
+             (and (jade-blank-line-p) (not (= (point-at-eol) (point-max))))))
+    (let ((next-line-indent (current-indentation)))
+      next-line-indent)))
+
 (defun jade-newline-and-indent ()
   "Insert newline and indent to parent's indentation level."
   (interactive)
@@ -355,10 +369,10 @@ region defined by BEG and END."
   (set (make-local-variable 'comment-start) "//- ")
   (set (make-local-variable 'comment-start-skip) "//-\\s-*")
 
-  (setq-default jade-tab-width 2)
-  (setq-local indent-line-function 'jade-indent-line)
+  (set (make-local-variable 'jade-tab-width) 2)
+  (set (make-local-variable 'indent-line-function) 'jade-indent-line)
   (set (make-local-variable 'indent-region-function) 'jade-indent-region)
-  (setq-local indent-tabs-mode nil)
+  (set (make-local-variable 'indent-tabs-mode) nil)
 
   ;; keymap
   (use-local-map jade-mode-map)
