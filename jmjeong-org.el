@@ -160,7 +160,7 @@
 		 (directory-files (expand-file-name (concat org-agenda-directory "personal")) t "\\.org$"))))
 
 ;; (jm-rescan-org-agenda-files)
-(org-remember-insinuate)
+;; (org-remember-insinuate)
 
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
