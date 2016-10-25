@@ -3,6 +3,14 @@
 (require 'coffee-mode)
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+
+(add-hook 'yaml-mode-hook
+		  '(lambda ()
+			 (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+(add-hook 'yaml-mode-hook
+		  '(lambda ()
+			 (setq-default indent-tabs-mode nil)))
 
 (autoload 'tern-mode "tern.el" nil t)
 
@@ -13,3 +21,6 @@
      (require 'tern-auto-complete)
      (setq tern-ac-on-dot t)
      (tern-ac-setup)))
+
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))

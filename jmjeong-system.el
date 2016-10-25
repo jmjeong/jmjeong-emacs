@@ -18,7 +18,7 @@
   ;; mac
   (cond ((eq type 'emacs-mac-window)
 		 ;(set-default-font "NanumGothicCoding-14")
-		 (set-face-font 'default "NanumGothicCoding-14")
+		 ; (set-face-font 'default "NanumGothicCoding-14")
 		 ;; mac에서는 command 키를 meta key로 사용
 		 (setq ns-command-modifier 'meta)
 		 (setq ring-bell-function 'ignore)		 

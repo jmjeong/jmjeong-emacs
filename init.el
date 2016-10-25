@@ -71,6 +71,7 @@
 (load-library "jmjeong-doxymacs")		; doxymacs
 (load-library "jmjeong-xcscope")		; xcscope
 (load-library "jmjeong-cprog")			; c programming
+(load-library "jmjeong-package")
 (load-library "jmjeong-graphviz")
 (load-library "jmjeong-calendar")		; lunar calendar and diary stuff
 ;(load-library "jmjeong-objc")			; objective-cc
@@ -170,11 +171,12 @@
 		   (concat org-agenda-directory "todo.org"))
 		  "Tasks"))))
  '(org-reverse-note-order t)
- '(package-archives
-   (quote
-	(("marmalade" . "http://marmalade-repo.org/packages/")
-	 ("melpa" . "http://melpa.milkbox.net/packages/")
-	 ("gnu" . "http://elpa.gnu.org/packages/"))))
+ ;; '(package-archives
+ ;;   (quote
+ ;; 	(("marmalade" . "http://marmalade-repo.org/packages/")
+ ;; 	 ("melpa-stable" . "https://stable.melpa.org/packages/")
+ ;; 	 ("melpa" . "http://melpa.milkbox.net/packages/")
+ ;; 	 ("gnu" . "http://elpa.gnu.org/packages/"))))
  '(safe-local-variable-values
    (quote
 	((TeX-master . t)
