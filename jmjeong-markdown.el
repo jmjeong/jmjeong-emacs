@@ -4,13 +4,13 @@
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 
-(add-hook 'markdown-mode-hook
-		  (let ((original-command (lookup-key markdown-mode-map [tab])))
-			`(lambda ()
-			   (setq yas/fallback-behavior
-					 '(apply ,original-command))
-			   (auto-fill-mode)
-			   (local-set-key [tab] 'yas/expand))))
+;; (add-hook 'markdown-mode-hook
+;; 		  (let ((original-command (lookup-key markdown-mode-map [tab])))
+;; 			`(lambda ()
+;; 			   (setq yas/fallback-behavior
+;; 					 '(apply ,original-command))
+;; 			   (auto-fill-mode)
+;; 			   (local-set-key [tab] 'yas/expand))))
 
 
 (autoload 'gfm-mode "gfm-mode"
@@ -24,14 +24,14 @@
 (add-to-list 'auto-mode-alist '("README$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("readme$" . markdown-mode))
 
-;; (defun markdown-preview-file ()
-;;   "run Marked on the current file and revert the buffer"
-;;   (interactive)
-;;   (save-buffer)
-;;   (async-shell-command
-;;    (format "open -a /Applications/Marked 2.app %s"
-;;        (shell-quote-argument (buffer-file-name))))
-;; )
+(defun markdown-preview-file ()
+  "run Marked on the current file and revert the buffer"
+  (interactive)
+  (save-buffer)
+  (async-shell-command
+   (format "open -a /Applications/Marked 2.app %s"
+       (shell-quote-argument (buffer-file-name))))
+)
 (setq markdown-open-command "/Users/jmjeong/bin/mark")
 
 ; markdown mode를 써보니 기존의 orgmode에 비해서 많이 불편하다.

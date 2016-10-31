@@ -16,7 +16,7 @@
 (add-to-list 'load-path (concat elisp-root-dir "/auto-install"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/bbdb"))
-(add-to-list 'load-path (concat elisp-root-dir "/vendor/yasnippet"))
+;; (add-to-list 'load-path (concat elisp-root-dir "/vendor/yasnippet"))
 ;; (add-to-list 'load-path (concat elisp-root-dir "/vendor/emacs-w3m"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/pylookup"))
 (add-to-list 'load-path (concat elisp-root-dir "/vendor/auctex"))
@@ -89,7 +89,7 @@
 (load-library "jmjeong-redo")			; redo
 (load-library "jmjeong-psvn")			; psvn
 (load-library "jmjeong-tuareg")			; tuareg
-(load-library "jmjeong-yasnippet")		; yasnippet
+; (load-library "jmjeong-yasnippet")		; yasnippet
 (load-library "jmjeong-markdown")		; markdown-mode
 (load-library "jmjeong-android")		; android
 (load-library "jmjeong-dired")			; dired

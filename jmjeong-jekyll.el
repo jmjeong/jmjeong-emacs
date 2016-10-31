@@ -2,5 +2,5 @@
 (require 'jekyll)
 (jekyll-init-keybindings)
 (setq jekyll-directory "/Users/jmjeong/git/jmjeong.github.io/")
-(setq jekyll-post-template "---\nlayout: single\ntitle: %s\ncategory: \ntags: \n---\n")
+(setq jekyll-post-template "---\nlayout: single\ntitle: %s\ndescription: \ncategory: \ntags: \n---\n")
 (setq jekyll-post-ext ".md")
